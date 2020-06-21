@@ -1,0 +1,35 @@
+{
+  "name": "frontend-project-lvl2",
+  "version": "1.0.0",
+  "description": "Gendiff util. Hexlet project level 2.",
+  "main": "index.js",
+  "bin": {
+    "gendiff": "src/bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuliyaYakutsik/frontend-project-lvl2.git"
+  },
+  "keywords": [
+    "gendiff",
+    "hexlet"
+  ],
+  "author": "Yuliya Yakutsik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuliyaYakutsik/frontend-project-lvl2/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/YuliyaYakutsik/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2"
+  },
+  "dependencies": {
+    "commander": "^5.1.0"
+  }
+}
