@@ -20,3 +20,9 @@ $ make publish
 ```sh
 $ make start
 ```
+
+## Usage
+
+#### Compare JSON files
+
+[![asciicast](https://asciinema.org/a/GD2jppVoYLS5Yv8vUSmj9qGP0.svg)](https://asciinema.org/a/GD2jppVoYLS5Yv8vUSmj9qGP0)
