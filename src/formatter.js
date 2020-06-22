@@ -19,10 +19,11 @@ const nodeTypes = {
 const formatter = (diff) => {
   const indentString = indentationChar.repeat(indentSize - serviceCharLength);
 
-  const values = diff.map(node => nodeTypes[node.type](node));
-  const flattenedValues = _.flatten(values); // need to flatten because in changed node we have an array inside
+  const values = diff.map((node) => nodeTypes[node.type](node));
+  // need to flatten because in changed node we have an array inside
+  const flattenedValues = _.flatten(values);
   const output = flattenedValues
-    .map((value => `${indentString}${value}`))
+    .map(((value) => `${indentString}${value}`))
     .join('\n');
 
   return `${openingBracket}\n${output}\n${closingBracket}`;

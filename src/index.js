@@ -22,7 +22,9 @@ const keyTypes = [
   },
   {
     type: 'unchanged',
-    check: (data1, data2, key) => _.has(data1, key) && _.has(data2, key) && data1[key] === data2[key],
+    check: (data1, data2, key) => _.has(data1, key)
+      && _.has(data2, key)
+      && data1[key] === data2[key],
     process: (value1, value2) => ({
       oldValue: value1,
       newValue: value2,
@@ -30,7 +32,9 @@ const keyTypes = [
   },
   {
     type: 'changed',
-    check: (data1, data2, key) => _.has(data1, key) && _.has(data2, key) && data1[key] !== data2[key],
+    check: (data1, data2, key) => _.has(data1, key)
+      && _.has(data2, key)
+      && data1[key] !== data2[key],
     process: (value1, value2) => ({
       oldValue: value1,
       newValue: value2,
@@ -39,7 +43,7 @@ const keyTypes = [
 ];
 
 const getDiff = (data1, data2) => _.union(_.keys(data1), _.keys(data2)).map((key) => {
-  const { type, process } = _.find(keyTypes, item => item.check(data1, data2, key));
+  const { type, process } = _.find(keyTypes, (item) => item.check(data1, data2, key));
   const { oldValue, newValue } = process(data1[key], data2[key]);
 
   return {
@@ -50,7 +54,7 @@ const getDiff = (data1, data2) => _.union(_.keys(data1), _.keys(data2)).map((key
   };
 });
 
-const genDiff = (filePath1, filePath2, format = 'complex') => {
+const genDiff = (filePath1, filePath2) => {
   const config1 = fs.readFileSync(path.resolve(filePath1), 'utf8');
   const config2 = fs.readFileSync(path.resolve(filePath2), 'utf8');
 
