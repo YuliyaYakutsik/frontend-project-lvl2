@@ -12,4 +12,12 @@ describe('genDiff', () => {
 
     expect(genDiff(config1, config2)).toBe(expected);
   });
+
+  test('Should return correct diff. Type: yml. Structure: flat.', () => {
+    const expected = fs.readFileSync(path.join(fixturesPath, 'expected.txt'), 'utf-8');
+    const config1 = path.join(fixturesPath, 'yml', 'before.yml');
+    const config2 = path.join(fixturesPath, 'yml', 'after.yml');
+
+    expect(genDiff(config1, config2)).toBe(expected);
+  });
 });

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import formatter from './formatter.js';
+import getParser from './parsers.js';
 
 const keyTypes = [
   {
@@ -42,7 +43,7 @@ const keyTypes = [
   },
 ];
 
-const getDiff = (data1, data2) => _.union(_.keys(data1), _.keys(data2)).map((key) => {
+const getAst = (data1, data2) => _.union(_.keys(data1), _.keys(data2)).map((key) => {
   const { type, process } = _.find(keyTypes, (item) => item.check(data1, data2, key));
   const { oldValue, newValue } = process(data1[key], data2[key]);
 
@@ -58,10 +59,13 @@ const genDiff = (filePath1, filePath2) => {
   const config1 = fs.readFileSync(path.resolve(filePath1), 'utf8');
   const config2 = fs.readFileSync(path.resolve(filePath2), 'utf8');
 
-  const data1 = JSON.parse(config1);
-  const data2 = JSON.parse(config2);
+  const config1Ext = path.extname(filePath1).slice(1);
+  const config2Ext = path.extname(filePath2).slice(1);
 
-  const diff = getDiff(data1, data2);
+  const data1 = getParser(config1Ext)(config1);
+  const data2 = getParser(config2Ext)(config2);
+
+  const diff = getAst(data1, data2);
 
   return formatter(diff);
 };
