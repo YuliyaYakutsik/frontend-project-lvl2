@@ -27,3 +27,11 @@ $ make start
 #### Compare JSON files
 
 [![asciicast](https://asciinema.org/a/GD2jppVoYLS5Yv8vUSmj9qGP0.svg)](https://asciinema.org/a/GD2jppVoYLS5Yv8vUSmj9qGP0)
+
+#### Compare YML files
+
+[![asciicast](https://asciinema.org/a/Jrm9x1VDHPodo6MlbRkGEYXGZ.svg)](https://asciinema.org/a/Jrm9x1VDHPodo6MlbRkGEYXGZ)
+
+#### Compare INI files
+
+[![asciicast](https://asciinema.org/a/6xaNKSWXx8BYXOxjRUGcM601s.svg)](https://asciinema.org/a/6xaNKSWXx8BYXOxjRUGcM601s)
