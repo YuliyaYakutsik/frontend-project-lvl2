@@ -35,3 +35,7 @@ $ make start
 #### Compare INI files
 
 [![asciicast](https://asciinema.org/a/6xaNKSWXx8BYXOxjRUGcM601s.svg)](https://asciinema.org/a/6xaNKSWXx8BYXOxjRUGcM601s)
+
+#### Compare files with nested structure
+
+[![asciicast](https://asciinema.org/a/qJNr4f9L8cEGPUzkd4sJScc1S.svg)](https://asciinema.org/a/qJNr4f9L8cEGPUzkd4sJScc1S)
