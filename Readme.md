@@ -39,3 +39,7 @@ $ make start
 #### Compare files with nested structure
 
 [![asciicast](https://asciinema.org/a/qJNr4f9L8cEGPUzkd4sJScc1S.svg)](https://asciinema.org/a/qJNr4f9L8cEGPUzkd4sJScc1S)
+
+#### Plain format of output
+
+[![asciicast](https://asciinema.org/a/0kIOoqjLLek78bYtYyVgxV5eD.svg)](https://asciinema.org/a/0kIOoqjLLek78bYtYyVgxV5eD)
