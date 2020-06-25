@@ -4,6 +4,18 @@ import _ from 'lodash';
 import getFormatter from './formatters/index.js';
 import getParser from './parsers.js';
 
+const getKeyType = (data1, data2, key) => ({
+  isAdded() {
+    return !_.has(data1, key) && _.has(data2, key);
+  },
+  isRemoved() {
+    return _.has(data1, key) && !_.has(data2, key);
+  },
+  isPresent() {
+    return _.has(data1, key) && _.has(data2, key);
+  },
+});
+
 const keyTypes = [
   {
     type: 'nested',
@@ -15,7 +27,7 @@ const keyTypes = [
   },
   {
     type: 'added',
-    check: (data1, data2, key) => !_.has(data1, key) && _.has(data2, key),
+    check: (data1, data2, key) => getKeyType(data1, data2, key).isAdded(),
     process: (value1, value2) => ({
       oldValue: value1,
       newValue: value2,
@@ -23,7 +35,7 @@ const keyTypes = [
   },
   {
     type: 'removed',
-    check: (data1, data2, key) => _.has(data1, key) && !_.has(data2, key),
+    check: (data1, data2, key) => getKeyType(data1, data2, key).isRemoved(),
     process: (value1, value2) => ({
       oldValue: value1,
       newValue: value2,
@@ -31,8 +43,7 @@ const keyTypes = [
   },
   {
     type: 'unchanged',
-    check: (data1, data2, key) => _.has(data1, key)
-      && _.has(data2, key)
+    check: (data1, data2, key) => getKeyType(data1, data2, key).isPresent()
       && data1[key] === data2[key],
     process: (value1, value2) => ({
       oldValue: value1,
@@ -41,8 +52,7 @@ const keyTypes = [
   },
   {
     type: 'changed',
-    check: (data1, data2, key) => _.has(data1, key)
-      && _.has(data2, key)
+    check: (data1, data2, key) => getKeyType(data1, data2, key).isPresent()
       && data1[key] !== data2[key],
     process: (value1, value2) => ({
       oldValue: value1,
