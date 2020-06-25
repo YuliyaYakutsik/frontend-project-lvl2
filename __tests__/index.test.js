@@ -8,8 +8,10 @@ describe('genDiff', () => {
   const table = [
     { type: 'json', format: 'stylish' },
     { type: 'json', format: 'plain' },
+    { type: 'json', format: 'json' },
     { type: 'yml', format: 'stylish' },
     { type: 'yml', format: 'plain' },
+    { type: 'yml', format: 'json' },
     { type: 'ini', format: 'stylish' },
     { type: 'ini', format: 'plain' },
   ];

@@ -43,3 +43,7 @@ $ make start
 #### Plain format of output
 
 [![asciicast](https://asciinema.org/a/0kIOoqjLLek78bYtYyVgxV5eD.svg)](https://asciinema.org/a/0kIOoqjLLek78bYtYyVgxV5eD)
+
+#### JSON format of output
+
+[![asciicast](https://asciinema.org/a/9Wx9U9Cm8FAxXOq2n2s3lXKbS.svg)](https://asciinema.org/a/https://asciinema.org/a/9Wx9U9Cm8FAxXOq2n2s3lXKbS)
