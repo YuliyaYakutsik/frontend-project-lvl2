@@ -19,13 +19,9 @@ describe('genDiff', () => {
   test.each(table)('Should return correct diff. %o', (options) => {
     const { type, format } = options;
     const expected = fs.readFileSync(path.join(fixturesPath, `expected-${format}.txt`), 'utf-8');
-    const expectedNested = fs.readFileSync(path.join(fixturesPath, `expected-nested-${format}.txt`), 'utf-8');
     const config1 = path.join(fixturesPath, type, `before.${type}`);
     const config2 = path.join(fixturesPath, type, `after.${type}`);
-    const config1Nested = path.join(fixturesPath, type, `before-nested.${type}`);
-    const config2Nested = path.join(fixturesPath, type, `after-nested.${type}`);
 
     expect(genDiff(config1, config2, format)).toBe(expected);
-    expect(genDiff(config1Nested, config2Nested, format)).toBe(expectedNested);
   });
 });

@@ -30,18 +30,20 @@ const nodeTypes = {
   ]),
 };
 
-const stylishFormatter = (ast, depth = 1) => {
-  const { openingBracket, closingBracket } = getBrackets(depth);
-  const indentString = indentationChar.repeat(indentSize * depth - diffCharLength);
+const stylishFormatter = (ast) => {
+  const iter = (innerAst, depth) => {
+    const { openingBracket, closingBracket } = getBrackets(depth);
+    const indentString = indentationChar.repeat(indentSize * depth - diffCharLength);
 
-  const values = ast.map((node) => nodeTypes[node.type](node, depth, stylishFormatter));
-  // need to flatten because in changed node we have an array inside
-  const flattenedValues = _.flatten(values);
-  const output = flattenedValues
-    .map(((value) => `${indentString}${value}`))
-    .join('\n');
+    const values = innerAst.flatMap((node) => nodeTypes[node.type](node, depth, iter));
+    const output = values
+      .map(((value) => `${indentString}${value}`))
+      .join('\n');
 
-  return `${openingBracket}\n${output}\n${closingBracket}`;
+    return `${openingBracket}\n${output}\n${closingBracket}`;
+  }
+  
+  return iter(ast, 1);
 };
 
 export default stylishFormatter;

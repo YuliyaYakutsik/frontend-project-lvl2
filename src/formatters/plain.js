@@ -25,7 +25,7 @@ const nodeTypes = {
 const plainFormatter = (ast, path = '') => {
   const output = ast
     .filter((node) => node.type !== 'unchanged')
-    .map((node) => `${nodeTypes[node.type](node, path, plainFormatter)}`)
+    .map((node) => nodeTypes[node.type](node, path, plainFormatter))
     .join('\n');
 
   return output;
