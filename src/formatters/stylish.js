@@ -41,8 +41,8 @@ const stylishFormatter = (ast) => {
       .join('\n');
 
     return `${openingBracket}\n${output}\n${closingBracket}`;
-  }
-  
+  };
+
   return iter(ast, 1);
 };
 
